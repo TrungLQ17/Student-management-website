@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm Kiếm Sinh Viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 75%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .message {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tìm Kiếm Sinh Viên</h1>
+    <form method="GET">
+        <label for="ma_sv">Nhập mã sinh viên:</label>
+        <input type="text" id="ma_sv" name="ma_sv" value="{{ ma_sv }}">
+        <button type="submit">Tìm Kiếm</button>
+    </form>
+    
+    {% if sinh_viens %}
+        <h2>Kết Quả Tìm Kiếm:</h2>
+        <table>
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ Tên</th>
+                <th>Địa Chỉ</th>
+                <th>Tổng TC</th>
+                <th>Điểm TB</th>
+            </tr>
+            {% for sv in sinh_viens %}
+            <tr>
+                <td>{{ sv.ma_sv }}</td>
+                <td>{{ sv.ho_ten }}</td>
+                <td>{{ sv.dia_chi }}</td>
+                <td>{{ sv.tong_tc }}</td>
+                <td>{{ sv.diem_tb }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p class="message">Không tìm thấy sinh viên có mã số {{ ma_sv }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Sinh Viên</title>
+</head>
+<body>
+    <h1>Danh Sách Sinh Viên</h1>
+    <h2>Hệ Đại Học</h2>
+    <ul>
+        {% for sv in he_daihocs %}
+            <li>{{ sv }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Văn Bằng 2</h2>
+    <ul>
+        {% for sv in vb2s %}
+            <li>{{ sv }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Sinh Viên Đủ Điều Kiện Tốt Nghiệp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #45a049;
+        }
+        .content {
+            width: 80%;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Sinh Viên Đủ Điều Kiện Tốt Nghiệp</h2>
+        <h3>Hệ Đại Học</h3>
+        <table>
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ Tên</th>
+                <th>Địa Chỉ</th>
+                <th>Tổng TC</th>
+                <th>Điểm TB</th>
+                <th>Tên Luận Văn</th>
+                <th>Điểm Luận Văn</th>
+            </tr>
+            {% for sv in he_daihocs %}
+            <tr>
+                <td>{{ sv.ma_sv }}</td>
+                <td>{{ sv.ho_ten }}</td>
+                <td>{{ sv.dia_chi }}</td>
+                <td>{{ sv.tong_tc }}</td>
+                <td>{{ sv.diem_tb }}</td>
+                <td>{{ sv.ten_lv }}</td>
+                <td>{{ sv.diem_lv }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h3>Văn Bằng 2</h3>
+        <table>
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ Tên</th>
+                <th>Địa Chỉ</th>
+                <th>Tổng TC</th>
+                <th>Điểm TB</th>
+                <th>Điểm Tốt Nghiệp</th>
+            </tr>
+            {% for sv in vb2s %}
+            <tr>
+                <td>{{ sv.ma_sv }}</td>
+                <td>{{ sv.ho_ten }}</td>
+                <td>{{ sv.dia_chi }}</td>
+                <td>{{ sv.tong_tc }}</td>
+                <td>{{ sv.diem_tb }}</td>
+                <td>{{ sv.diem_tot_nghiep }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
